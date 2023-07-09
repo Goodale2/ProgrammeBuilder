@@ -13,6 +13,8 @@
     let loading: boolean = true;
     let onboarding: boolean = false;
 
+    const user = userStore(auth);
+
     async function signInWithGoogle() {
         loading = true;
         try {
@@ -35,9 +37,8 @@
         loading = false;
     }
 
-    const user = userStore(auth);
-
     async function handleSignOut() {
+        loading = true;
         signOut(auth);
         location.reload();
     }
@@ -49,7 +50,7 @@
         } else {
             userHasDocument = false;
             programmeId = undefined;
-            loading = false;
+            setTimeout(() => loading = false, 1500); // This is a cheap hack to work around the async nature of loading state...
         }
     }
 
@@ -71,8 +72,10 @@
 </script>
 
 {#if loading}
-<p class=" text-primary text-xl font-bold">Getting Things Ready</p>
-<span class="loading loading-infinity loading-lg text-primary"></span>
+<div class=" bg-slate-200 p-20 rounded-xl flex flex-col mx-auto items-center text-center my-auto border-2 border-dance">
+    <p class=" text-primary text-xl font-bold">Getting Things Ready</p>
+    <span class="loading loading-infinity loading-lg text-primary"></span>
+    </div>
 {:else}
 {#if $user}
 <h2 class=" text-xl">Hello, {$user.displayName}!</h2>
@@ -88,6 +91,7 @@
     </div>
 </div>
 {:else}
+<p>Thank you for choosing to try out ProgrammeBuilder!<br/> Get started by pressing the button bellow and entering some basic information.</p>
 <div id="onboarding-btn" class="grid flex-grow card bg-base-300 rounded-box place-items-center mt-5">
     <button class="btn btn-ghost hover:bg-transparent" on:click={() => activateOnboarding()}>Get Started</button>
 </div>
@@ -103,19 +107,19 @@
     <form class=" flex flex-col gap-4" on:submit|preventDefault={handleSubmit}>
         <div class="form-control w-full max-w-xs">
             <label class="label" for="ward">
-                <span class="label-text">Ward or Branch Name</span>
+                <span class="label-text">Ward or Branch Name *</span>
             </label>
             <input required name="ward" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.wardName}>
         </div>
         <div class="form-control w-full max-w-xs">
             <label class="label" for="bishop">
-                <span class="label-text" title="Usually Bishop or Branch President">Presiding Leader</span>
+                <span class="label-text" title="Usually Bishop or Branch President">Presiding Leader *</span>
             </label>
             <input required name="bishop" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.presiding}>
         </div>
         <div class="form-control w-full max-w-xs">
             <label class="label" for="conducting">
-                <span class="label-text">First Counsoler</span>
+                <span class="label-text">First Counsoler *</span>
             </label>
             <input required name="conducting" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.conducting}>
         </div>
