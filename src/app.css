@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    color: rgb(38 38 38);
+}
+
+@keyframes border-dance {
+    0% {border-color: #717ff8;}
+    25% {border-color: #24e2fb;}
+    50% {border-color: #34D399;}
+    75% {border-color: #60e8fa;}
+    100% {border-color: #717ff8;}
+  }
+  
+  .border-dance {
+    animation: border-dance 5s infinite;
+  }
