@@ -1,7 +1,6 @@
 export type nullable = undefined|null;
 
 export interface Programme {
-    announcements: string|nullable; // The person givng the announcments
     chorister: string;
     conducting: string;
     date: string|nullable;
@@ -17,4 +16,5 @@ export interface Programme {
     speaker2: string|nullable;
     speaker3: string|nullable;
     wardName: string;
+    benediction: string|nullable;
 }

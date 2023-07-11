@@ -76,22 +76,22 @@
     </div>
     <hr class="mb-6 max-w-lg mx-auto">
     <div class="max-w-lg mx-auto">
-    <div class="flex justify-between mb-6">
-        <span>Announcments</span>
-        <span>{programme.announcements || programme.conducting || "TBD"}</span>
-    </div>
     <div class="mb-6">
+        <span>Announcments</span>
+    </div>
+    <div class="flex justify-between mb-6">
+        <span>Opening Hymn</span>
         {programme.musicalNumber1 || "TBD"}
     </div>
     <div class="flex justify-between mb-6">
         <span>Invocation</span>
-        <span>{programme.invocation || "TBD"}</span>
-    </div>
-    <div class="flex justify-between mb-6">
-        <span>Ward Business</span>
-        <span>{programme.conducting}</span>
+        <span>{programme.invocation || "By Invitation"}</span>
     </div>
     <div class="mb-6">
+        <span>Ward / Stake Business</span>
+    </div>
+    <div class="flex justify-between mb-6">
+        <span>Sacrament Hymn</span>
         {programme.musicalNumber2 || "TBD"}
     </div>
     <div class="mb-6">Administration of the Sacrament</div>
@@ -100,7 +100,8 @@
         <span>{programme.speaker1 || "TBD"}</span>
     </div>
     {#if programme.musicalNumber3}
-        <div class="mb-6">
+        <div class="flex justify-between mb-6">
+            <span>Intermediate Hymn</span>
             <span>{programme.musicalNumber3}</span>
         </div>
     {/if}
@@ -115,10 +116,15 @@
     </div>
     {/if}
     {#if programme.musicalNumber4}
-        <div class="mb-6">
+        <div class="flex justify-between mb-6">
+            <span>Closing Hymn</span>
             {programme.musicalNumber4}
         </div>
     {/if}
     </div>
-    {/if}
+    <div class="flex justify-between mb-6 max-w-lg mx-auto">
+        <span>Benediction</span>
+        <span>{programme.benediction || "By Invitation"}</span>
     </div>
+    {/if}
+</div>

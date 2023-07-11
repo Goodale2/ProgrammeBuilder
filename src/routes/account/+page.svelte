@@ -111,31 +111,7 @@
             </label>
             <input required name="ward" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.wardName}>
         </div>
-        <div class="form-control w-full max-w-xs">
-            <label class="label" for="bishop">
-                <span class="label-text" title="Usually Bishop or Branch President">Presiding Leader *</span>
-            </label>
-            <input required name="bishop" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.presiding}>
-        </div>
-        <div class="form-control w-full max-w-xs">
-            <label class="label" for="conducting">
-                <span class="label-text">First Counsoler *</span>
-            </label>
-            <input required name="conducting" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.conducting}>
-        </div>
-        <div class="form-control w-full max-w-xs">
-            <label class="label" for="chorister">
-                <span class="label-text">Chorister</span>
-            </label>
-            <input name="chorister" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.chorister}>
-        </div>
-        <div class="form-control w-full max-w-xs">
-            <label class="label" for="pianist">
-                <span class="label-text">Pianist</span>
-            </label>
-            <input name="pianist" type="text" class="input input-bordered w-full max-w-xs" bind:value={programme.pianist}>
-        </div>
-        <button class="btn mt-5" type="submit">Complete Setup</button>
+        <button class="btn mt-5" type="submit">Start Planning</button>
     </form>
 </div>
 {/if}
